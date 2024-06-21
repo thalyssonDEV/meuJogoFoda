@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://damn7u37jffvl"]
+
+[ext_resource type="Texture2D" uid="uid://fq4pqdbj7342" path="res://assets/sprite_teste_final.png" id="1_6eyd6"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_bu604"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icqlh"]
+atlas = ExtResource("1_6eyd6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8xwea"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icqlh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_bu604")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(1.03906, 1)
+sprite_frames = SubResource("SpriteFrames_8xwea")
+animation = &"idle"
